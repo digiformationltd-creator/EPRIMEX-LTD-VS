@@ -1,0 +1,4976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EPRIMEX Ltd - eCommerce VA, Banking Solutions & Company Formation. Professional services for Amazon, eBay, TikTok Shop, UK LTD & USA LLC.">
+    <title>EPRIMEX Ltd | Business. Simplified.</title>
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- LUCIDE ICONS -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* ═══════════════════════════════════════════════════════════════════════════════════
+           DESIGN TOKENS & CSS VARIABLES
+           ═══════════════════════════════════════════════════════════════════════════════════ */
+        :root {
+            /* Colors */
+            --navy: #0A0E1A;
+            --navy-mid: #0F1629;
+            --navy-light: #1A2340;
+            --blue: #0057FF;
+            --cyan: #00D4FF;
+            --white: #FFFFFF;
+            --grey: #8892A4;
+            --green-wa: #25D366;
+
+            /* Glass Effects */
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(0, 212, 255, 0.15);
+            --glow-blue: 0 0 40px rgba(0, 87, 255, 0.3);
+            --glow-cyan: 0 0 40px rgba(0, 212, 255, 0.2);
+
+            /* Typography */
+            --font-display: 'Syne', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+
+            /* Spacing */
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 32px;
+            --spacing-xl: 48px;
+            --spacing-2xl: 64px;
+
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-base: 0.3s ease;
+            --transition-slow: 0.5s ease;
+
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+
+            /* Z-Index */
+            --z-dropdown: 1000;
+            --z-sticky: 1001;
+            --z-modal: 2000;
+            --z-cursor: 9999;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════════════
+           CSS RESET & BASE STYLES
+           ═══════════════════════════════════════════════════════════════════════════════════ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--navy);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body.scroll-lock {
+            overflow: hidden;
+        }
+
+        /* Desktop cursor */
+        @media (min-width: 768px) {
+            body {
+                cursor: none;
+            }
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: inherit;
+            transition: all var(--transition-fast);
+        }
+
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+            font-size: 16px; /* Prevents zoom on iOS */
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════════════
+           TYPOGRAPHY SYSTEM
+           ═══════════════════════════════════════════════════════════════════════════════════ */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+        }
+
+        h1 {
+            font-size: 72px;
+        }
+
+        h2 {
+            font-size: 52px;
+        }
+
+        h3 {
+            font-size: 36px;
+        }
+
+        h4 {
+            font-size: 28px;
+        }
+
+        h5 {
+            font-size: 22px;
+        }
+
+        h6 {
+            font-size: 18px;
+        }
+
+        p {
+            margin-bottom: var(--spacing-md);
+            color: var(--grey);
+            line-height: 1.6;
+        }
+
+        /* TABLET (768px - 1024px) */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 56px;
+            }
+
+            h2 {
+                font-size: 40px;
+            }
+
+            h3 {
+                font-size: 28px;
+            }
+
+            h4 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+
+        /* MOBILE (max-width 767px) */
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            h4 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+
+            body {
+                cursor: auto;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════════════
+           HEADER & NAVIGATION
+           ═══════════════════════════════════════════════════════════════════════════════════ */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--spacing-xl);
+            background-color: var(--navy);
+            border-bottom: 1px solid transparent;
+            z-index: var(--z-sticky);
+            transition: all var(--transition-base);
+        }
+
+        header.scrolled {
+            background-color: rgba(10, 14, 26, 0.95);
+            border-bottom-color: var(--glass-border);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 87, 255, 0.1);
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: 20px;
+            font-weight: 800;
+            font-family: var(--font-display);
+            letter-spacing: -0.02em;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--navy);
+        }
+
+        /* Nav Links */
+        nav {
+            display: flex;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--grey);
+            position: relative;
+            cursor: pointer;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-link:hover {
+            color: var(--cyan);
+        }
+
+        .nav-link.active {
+            color: var(--blue);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--blue), var(--cyan));
+            transition: width var(--transition-fast);
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* CTA Button */
+        .cta-primary {
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            color: var(--navy);
+            padding: 10px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 14px;
+            transition: all var(--transition-fast);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+            cursor: pointer;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .cta-wa {
+            background-color: var(--green-wa);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+
+        .cta-wa:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Hamburger Menu Button */
+        .hamburger-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        .hamburger-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--cyan);
+            border-radius: 1px;
+            transition: all var(--transition-fast);
+        }
+
+        .hamburger-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(10px);
+        }
+
+        .hamburger-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-10px);
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(10, 14, 26, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1001;
+            overflow-y: auto;
+            padding: 100px var(--spacing-lg) var(--spacing-xl);
+            animation: slideDown 0.4s ease;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xl);
+        }
+
+        .mobile-nav-link {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--white);
+            cursor: pointer;
+            transition: color var(--transition-fast);
+        }
+
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+            color: var(--cyan);
+        }
+
+        /* MOBILE HEADER */
+        @media (max-width: 767px) {
+            header {
+                height: 64px;
+                padding: 0 var(--spacing-md);
+            }
+
+            .hamburger-btn {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .cta-primary,
+            .cta-wa {
+                display: none;
+            }
+
+            .logo {
+                font-size: 16px;
+            }
+
+            .logo-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════════════
+           ANNOUNCEMENT BAR
+           ═══════════════════════════════════════════════════════════════════════════════════ */
+        .announcement-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--cyan);
+            color: var(--navy);
+            padding: 10px var(--spacing-lg);
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-md);
+            z-index: 1000;
+            animation: slideDown 0.5s ease;
+        }
+
+        .announcement-bar.hidden {
+            display: none;
+        }
+
+        .announcement-close {
+            background: none;
+            border: none;
+            color: var(--navy);
+            cursor: pointer;
+            font-size: 18px;
+            transition: all var(--transition-fast);
+        }
+
+        .announcement-close:hover {
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 767px) {
+            .announcement-bar {
+                padding: 8px var(--spacing-sm);
+                font-size: 12px;
+                gap: var(--spacing-sm);
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════════════
+           MAIN CONTENT AREA
+           ═══════════════════════════════════════════════════════════════════════════════════ */
+        main {
+            margin-top: 80px;
+            margin-bottom: 64px;
+        }
+
+        @media (max-width: 767px) {
+            main {
+                margin-top: 64px;
+                margin-bottom: 64px;
+            }
+        }
+
+        /* Page Sections */
+        .page {
+            display: none;
+            width: 100%;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page#home {
+            display: block;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-xl);
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                padding: 0 var(--spacing-md);
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════════════
+           FOOTER
+           ═══════════════════════════════════════════════════════════════════════════════════ */
+        footer {
+            background-color: var(--navy-mid);
+            border-top: 1px solid var(--glass-border);
+            padding: var(--spacing-2xl) var(--spacing-xl) var(--spacing-lg);
+            margin-top: var(--spacing-2xl);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: var(--spacing-lg);
+            color: var(--white);
+        }
+
+        .footer-col p {
+            font-size: 14px;
+            color: var(--grey);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-col a {
+            font-size: 14px;
+            color: var(--grey);
+            transition: color var(--transition-fast);
+        }
+
+        .footer-col a:hover {
+            color: var(--cyan);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cyan);
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+
+        .social-icon:hover {
+            background-color: var(--cyan);
+            color: var(--navy);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--glass-border);
+            padding-top: var(--spacing-lg);
+            text-align: center;
+            font-size: 13px;
+            color: var(--grey);
+        }
+
+        /* TABLET FOOTER */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* MOBILE FOOTER */
+        @media (max-width: 767px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            footer {
+                padding: var(--spacing-xl) var(--spacing-md) var(--spacing-lg);
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════════════
+           MOBILE BOTTOM NAV BAR
+           ═══════════════════════════════════════════════════════════════════════════════════ */
+        .bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background-color: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid var(--glass-border);
+            z-index: var(--z-sticky);
+            padding-bottom: max(10px, env(safe-area-inset-bottom));
+        }
+
+        .bottom-nav.active {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+        }
+
+        .bottom-nav-item {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            height: 54px;
+            transition: all var(--transition-fast);
+        }
+
+        .bottom-nav-item:not(.cta) {
+            color: var(--grey);
+        }
+
+        .bottom-nav-item:not(.cta):hover,
+        .bottom-nav-item:not(.cta).active {
+            color: var(--cyan);
+        }
+
+        /* Center CTA Button */
+        .bottom-nav-item.cta {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--green-wa), #20c752);
+            border-radius: 50%;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .bottom-nav-item.cta:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 767px) {
+            .bottom-nav.active {
+                display: flex;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════════════
+           MODAL / CONTACT FORM
+           ═══════════════════════════════════════════════════════════════════════════════════ */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: var(--z-modal);
+            padding: var(--spacing-lg);
+            backdrop-filter: blur(8px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background-color: var(--navy-light);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            max-width: 500px;
+            width: 100%;
+            animation: scaleUp 0.3s ease;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 87, 255, 0.2);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: var(--spacing-lg);
+            right: var(--spacing-lg);
+            background: none;
+            border: none;
+            color: var(--grey);
+            font-size: 24px;
+            cursor: pointer;
+            transition: color var(--transition-fast);
+        }
+
+        .modal-close:hover {
+            color: var(--cyan);
+        }
+
+        .modal h2 {
+            margin-bottom: var(--spacing-lg);
+            color: var(--white);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px var(--spacing-sm);
+            background-color: var(--navy);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            color: var(--white);
+            font-size: 14px;
+            transition: all var(--transition-fast);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--grey);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--cyan);
+            background-color: rgba(0, 212, 255, 0.05);
+            box-shadow: 0 0 12px rgba(0, 212, 255, 0.1);
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background-color: var(--navy);
+            color: var(--white);
+        }
+
+        .modal-btn {
+            width: 100%;
+            padding: 12px var(--spacing-lg);
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            color: var(--navy);
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .modal-success {
+            text-align: center;
+            padding: var(--spacing-lg) 0;
+        }
+
+        .modal-success p {
+            font-size: 16px;
+            color: var(--cyan);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .modal-success-icon {
+            font-size: 48px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        @media (max-width: 767px) {
+            .modal {
+                padding: var(--spacing-lg);
+                max-width: 90%;
+            }
+
+            .modal h2 {
+                font-size: 24px;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════════════
+           GLASS CARDS & COMPONENTS
+           ═══════════════════════════════════════════════════════════════════════════════════ */
+        .glass-card {
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            backdrop-filter: blur(20px);
+            transition: all var(--transition-base);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--cyan);
+            box-shadow: var(--glow-cyan);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════════════
+           ANIMATIONS
+           ═══════════════════════════════════════════════════════════════════════════════════ */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleUp {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes reveal {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        @keyframes glow-pulse {
+            0% {
+                box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
+            }
+
+            100% {
+                box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+            }
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Reveal animation trigger */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal.delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal.delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal.delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .reveal.delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        .reveal.delay-5 {
+            transition-delay: 0.5s;
+        }
+
+        .reveal.delay-6 {
+            transition-delay: 0.6s;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════════════
+           CUSTOM CURSOR (DESKTOP ONLY)
+           ═══════════════════════════════════════════════════════════════════════════════════ */
+        .cursor-dot {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background-color: var(--cyan);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: var(--z-cursor);
+            display: none;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor-ring {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--blue);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: var(--z-cursor);
+            display: none;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .cursor-dot,
+            .cursor-ring {
+                display: block;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════════════
+           UTILITIES
+           ═══════════════════════════════════════════════════════════════════════════════════ */
+        .counter {
+            font-weight: 700;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════════════
+           SECTION PADDING
+           ═══════════════════════════════════════════════════════════════════════════════════ */
+        section {
+            padding: var(--spacing-2xl) 0;
+        }
+
+        @media (max-width: 767px) {
+            section {
+                padding: var(--spacing-xl) 0;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════════════
+           HOME PAGE SECTIONS
+           ═══════════════════════════════════════════════════════════════════════════════════ */
+
+        /* SECTION 1: HERO */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-blobs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero-blob-1 {
+            width: 400px;
+            height: 400px;
+            background: rgba(0, 87, 255, 0.2);
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .hero-blob-2 {
+            width: 500px;
+            height: 500px;
+            background: rgba(0, 212, 255, 0.15);
+            top: 200px;
+            right: -200px;
+            animation-delay: 2s;
+        }
+
+        .hero-blob-3 {
+            width: 350px;
+            height: 350px;
+            background: rgba(10, 14, 26, 0.3);
+            bottom: -100px;
+            right: 100px;
+            animation-delay: 4s;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 60%;
+            padding: var(--spacing-xl);
+        }
+
+        .hero-eyebrow {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--cyan);
+            margin-bottom: var(--spacing-lg);
+            animation: fadeIn 0.6s ease 0.3s both;
+        }
+
+        .hero-h1 {
+            font-size: 72px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+            min-height: 150px;
+        }
+
+        .hero-h1-gradient {
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .typewriter-text {
+            display: inline-block;
+            border-right: 3px solid var(--cyan);
+            min-width: 400px;
+            animation: typewriter 2.5s steps(40, end) forwards, blink-cursor 0.75s step-end infinite;
+        }
+
+        .hero-subheading {
+            font-size: 18px;
+            color: var(--grey);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-xl);
+            max-width: 500px;
+            animation: fadeIn 0.8s ease 0.6s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-ghost, .btn-wa {
+            padding: 14px 28px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            animation: slideUp 0.6s ease both;
+        }
+
+        .btn-primary:nth-child(1) { animation-delay: 0.7s; }
+        .btn-primary:nth-child(2) { animation-delay: 0.8s; }
+        .btn-primary:nth-child(3) { animation-delay: 0.9s; }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            color: var(--navy);
+            box-shadow: 0 0 30px rgba(0, 87, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(0, 87, 255, 0.4);
+        }
+
+        .btn-wa {
+            background-color: var(--green-wa);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-wa:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 2px solid var(--cyan);
+            color: var(--cyan);
+        }
+
+        .btn-ghost:hover {
+            background-color: rgba(0, 212, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            font-size: 13px;
+            color: var(--grey);
+            animation: fadeIn 1s ease 1s both;
+        }
+
+        .hero-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-badge-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--cyan);
+            border-radius: 50%;
+        }
+
+        .hero-cards {
+            position: relative;
+            z-index: 2;
+            width: 40%;
+            padding: var(--spacing-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-3d {
+            position: absolute;
+            width: 300px;
+            padding: var(--spacing-lg);
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--glow-cyan);
+            transition: all 0.6s ease;
+            cursor: grab;
+        }
+
+        .card-3d:active {
+            cursor: grabbing;
+        }
+
+        .card-3d.card-1 {
+            z-index: 3;
+            transform: translateX(-40px) translateY(0px) rotateY(-15deg);
+        }
+
+        .card-3d.card-2 {
+            z-index: 2;
+            transform: translateX(0px) translateY(20px) rotateY(0deg);
+        }
+
+        .card-3d.card-3 {
+            z-index: 1;
+            transform: translateX(40px) translateY(40px) rotateY(15deg);
+        }
+
+        .card-3d:hover {
+            transform: translateY(-20px) !important;
+            box-shadow: 0 0 60px rgba(0, 212, 255, 0.4);
+        }
+
+        .card-3d h3 {
+            font-size: 20px;
+            margin-bottom: var(--spacing-sm);
+            color: var(--white);
+        }
+
+        .card-3d-price {
+            font-size: 16px;
+            color: var(--cyan);
+            font-weight: 700;
+        }
+
+        .card-3d-icon {
+            font-size: 28px;
+            margin-bottom: var(--spacing-sm);
+            display: block;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-content {
+                width: 100%;
+            }
+
+            .hero-cards {
+                display: none;
+            }
+
+            .hero-h1 {
+                font-size: 56px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 100px var(--spacing-md) var(--spacing-xl);
+            }
+
+            .hero-content {
+                width: 100%;
+                padding: 0;
+            }
+
+            .hero-canvas {
+                display: none;
+            }
+
+            .hero-h1 {
+                font-size: 40px;
+                min-height: auto;
+            }
+
+            .hero-subheading {
+                font-size: 15px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-ghost, .btn-wa {
+                width: 100%;
+                text-align: center;
+            }
+
+            .typewriter-text {
+                min-width: auto;
+            }
+        }
+
+        /* SECTION 2: MARQUEE */
+        .trust-strip {
+            background-color: var(--navy-mid);
+            padding: var(--spacing-lg) 0;
+            overflow: hidden;
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .marquee {
+            display: flex;
+            gap: var(--spacing-xl);
+            animation: marquee 30s linear infinite;
+            white-space: nowrap;
+        }
+
+        .marquee:hover {
+            animation-play-state: paused;
+        }
+
+        .marquee-item {
+            font-size: 15px;
+            color: var(--grey);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .marquee-sep {
+            color: var(--cyan);
+            opacity: 0.5;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* SECTION 3: INTRO */
+        .intro-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-2xl);
+            align-items: center;
+        }
+
+        .intro-heading {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--white), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-lg);
+            animation: gradient-shift 4s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        .intro-text {
+            font-size: 18px;
+            color: var(--grey);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .stat-card {
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+
+        .stat-card:hover {
+            border-color: var(--cyan);
+            box-shadow: var(--glow-cyan);
+            transform: translateY(-4px);
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--cyan);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--grey);
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .intro-section {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-heading {
+                font-size: 40px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .intro-heading {
+                font-size: 32px;
+            }
+
+            .intro-text {
+                font-size: 15px;
+            }
+
+            .stat-number {
+                font-size: 32px;
+            }
+        }
+
+        /* SECTION 4: SERVICES */
+        .services-heading {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .services-heading h2 {
+            font-size: 52px;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .services-heading p {
+            font-size: 16px;
+            color: var(--grey);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-xl);
+        }
+
+        .service-card {
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(20px);
+            transition: all var(--transition-base);
+            animation: reveal 0.6s ease both;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0s; }
+        .service-card:nth-child(2) { animation-delay: 0.15s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.45s; }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--cyan);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .service-icon {
+            font-size: 36px;
+            margin-bottom: var(--spacing-md);
+            display: inline-block;
+            color: var(--cyan);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .service-card:hover .service-icon {
+            animation: float 1s ease-in-out infinite;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: var(--spacing-sm);
+            color: var(--white);
+        }
+
+        .service-desc {
+            font-size: 14px;
+            color: var(--grey);
+            margin-bottom: var(--spacing-lg);
+            min-height: 40px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .service-features li {
+            font-size: 13px;
+            color: var(--grey);
+            margin-bottom: var(--spacing-sm);
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+            font-weight: 700;
+        }
+
+        .service-btn {
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            color: var(--navy);
+            padding: 10px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            border: none;
+        }
+
+        .service-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .services-heading h2 {
+                font-size: 32px;
+            }
+
+            .service-card {
+                padding: var(--spacing-lg);
+            }
+
+            .service-card h3 {
+                font-size: 18px;
+            }
+        }
+
+        /* SECTION 5: PLATFORMS */
+        .platforms-section {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .platforms-heading {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: var(--spacing-lg);
+            background: linear-gradient(135deg, var(--white) 0%, var(--cyan) 50%, var(--blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-xl);
+        }
+
+        .platform-card {
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(20px);
+            transition: all 0.6s ease;
+            perspective: 1000px;
+        }
+
+        .platform-card:hover {
+            border-color: var(--cyan);
+            box-shadow: var(--glow-cyan);
+            transform: rotateY(5deg) rotateX(-2deg) translateY(-8px);
+        }
+
+        .platform-logo {
+            font-size: 48px;
+            margin-bottom: var(--spacing-md);
+            display: block;
+        }
+
+        .platform-card h3 {
+            font-size: 20px;
+            margin-bottom: var(--spacing-md);
+            color: var(--white);
+        }
+
+        .platform-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .platform-features li {
+            font-size: 13px;
+            color: var(--grey);
+            margin-bottom: var(--spacing-sm);
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .platform-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+        }
+
+        .platform-btn {
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            color: var(--navy);
+            padding: 12px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            border: none;
+            width: 100%;
+        }
+
+        .platform-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        @media (max-width: 1024px) {
+            .platforms-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .platforms-heading {
+                font-size: 32px;
+            }
+
+            .platform-card {
+                padding: var(--spacing-lg);
+            }
+        }
+
+        /* SECTION 6: COMPANY FORMATION */
+        .formation-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-2xl);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-2xl);
+            align-items: center;
+        }
+
+        .formation-content h2 {
+            font-size: 48px;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .formation-content p {
+            font-size: 16px;
+            color: var(--grey);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .formation-cta {
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            color: var(--navy);
+            padding: 14px 32px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: inline-block;
+        }
+
+        .formation-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .formation-cards {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .formation-card {
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(20px);
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: flex-start;
+            transition: all var(--transition-base);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .formation-card:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .formation-card:hover {
+            border-color: var(--cyan);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .formation-icon {
+            font-size: 32px;
+            min-width: 40px;
+        }
+
+        .formation-card h3 {
+            font-size: 18px;
+            margin-bottom: var(--spacing-sm);
+            color: var(--white);
+        }
+
+        .formation-card p {
+            font-size: 13px;
+            color: var(--grey);
+            margin: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .formation-section {
+                grid-template-columns: 1fr;
+            }
+
+            .formation-content h2 {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .formation-section {
+                padding: var(--spacing-xl);
+            }
+
+            .formation-content h2 {
+                font-size: 28px;
+            }
+        }
+
+        /* SECTION 7: BANKING */
+        .banking-section {
+            background-color: var(--navy-mid);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-2xl);
+            text-align: center;
+        }
+
+        .banking-heading {
+            font-size: 48px;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .banking-subheading {
+            font-size: 16px;
+            color: var(--grey);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .platforms-logos {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .platform-logo-card {
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-base);
+            cursor: pointer;
+        }
+
+        .platform-logo-card:hover {
+            border-color: var(--cyan);
+            background-color: rgba(0, 212, 255, 0.05);
+            transform: scale(1.05);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .platform-logo-card-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--white);
+            margin-top: var(--spacing-sm);
+        }
+
+        .banking-cta {
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            color: var(--navy);
+            padding: 14px 32px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: inline-block;
+        }
+
+        .banking-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        @media (max-width: 1024px) {
+            .platforms-logos {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .platforms-logos {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .banking-heading {
+                font-size: 32px;
+            }
+        }
+
+        /* SECTION 8: HOW IT WORKS */
+        .how-it-works {
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            font-size: 48px;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-xl);
+            position: relative;
+        }
+
+        .step-line {
+            position: absolute;
+            top: 50px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--blue), var(--cyan), var(--blue));
+            z-index: 1;
+            opacity: 0;
+            animation: drawLine 1s ease-out 0.3s forwards;
+        }
+
+        @keyframes drawLine {
+            from {
+                width: 0;
+                opacity: 1;
+            }
+            to {
+                width: 80%;
+                opacity: 1;
+            }
+        }
+
+        .step {
+            position: relative;
+            z-index: 2;
+            animation: reveal 0.6s ease both;
+        }
+
+        .step:nth-child(1) { animation-delay: 0.1s; }
+        .step:nth-child(2) { animation-delay: 0.2s; }
+        .step:nth-child(3) { animation-delay: 0.3s; }
+        .step:nth-child(4) { animation-delay: 0.4s; }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: var(--glass-bg);
+            border: 2px solid var(--cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--cyan);
+            margin: 0 auto var(--spacing-lg);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .step h3 {
+            font-size: 18px;
+            margin-bottom: var(--spacing-sm);
+            color: var(--white);
+        }
+
+        .step p {
+            font-size: 13px;
+            color: var(--grey);
+        }
+
+        @media (max-width: 1024px) {
+            .steps-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-lg);
+            }
+
+            .step-line {
+                display: none;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+
+            .how-it-works h2 {
+                font-size: 32px;
+            }
+
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+
+        /* SECTION 9: TESTIMONIALS */
+        .testimonials-section {
+            text-align: center;
+        }
+
+        .testimonials-section h2 {
+            font-size: 48px;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-xl);
+        }
+
+        .testimonial-card {
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(20px);
+            transition: all var(--transition-base);
+            animation: reveal 0.6s ease both;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-card:nth-child(1) { animation-delay: 0s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.15s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--cyan);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .testimonial-quote {
+            font-size: 14px;
+            color: var(--grey);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-lg);
+            flex-grow: 1;
+            text-align: left;
+            font-style: italic;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 32px;
+            color: var(--cyan);
+            line-height: 0;
+        }
+
+        .testimonial-quote::after {
+            content: '"';
+            font-size: 32px;
+            color: var(--cyan);
+            line-height: 0;
+        }
+
+        .testimonial-rating {
+            margin-bottom: var(--spacing-md);
+            color: #FFA500;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .testimonial-city {
+            font-size: 12px;
+            color: var(--grey);
+            text-align: left;
+        }
+
+        @media (max-width: 1024px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-section h2 {
+                font-size: 32px;
+            }
+
+            .testimonial-card {
+                padding: var(--spacing-lg);
+            }
+        }
+
+        /* SECTION 10: FINAL CTA */
+        .final-cta-section {
+            background: linear-gradient(135deg, rgba(0, 87, 255, 0.2), rgba(0, 212, 255, 0.2));
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-2xl);
+            text-align: center;
+            animation: glow-pulse 3s ease-in-out infinite;
+        }
+
+        .final-cta-section h2 {
+            font-size: 48px;
+            margin-bottom: var(--spacing-md);
+            background: linear-gradient(135deg, var(--white), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .final-cta-section p {
+            font-size: 18px;
+            color: var(--grey);
+            max-width: 700px;
+            margin: 0 auto var(--spacing-xl);
+        }
+
+        .final-cta-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta-primary {
+            background: white;
+            color: var(--navy);
+            padding: 14px 36px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .btn-cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-cta-secondary {
+            background: transparent;
+            color: white;
+            padding: 14px 36px;
+            border: 2px solid white;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .btn-cta-secondary:hover {
+            background: white;
+            color: var(--navy);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 767px) {
+            .final-cta-section {
+                padding: var(--spacing-xl);
+            }
+
+            .final-cta-section h2 {
+                font-size: 32px;
+            }
+
+            .final-cta-section p {
+                font-size: 15px;
+            }
+
+            .final-cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-cta-primary,
+            .btn-cta-secondary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @keyframes typewriter {
+            from {
+                width: 0;
+            }
+        }
+
+        @keyframes blink-cursor {
+            0%, 50% {
+                border-right-color: var(--cyan);
+            }
+            51%, 100% {
+                border-right-color: transparent;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════════════════════
+           INNER PAGES STYLES
+           ═══════════════════════════════════════════════════════════════════════════════════ */
+
+        /* Mini Hero */
+        .page-hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: var(--spacing-2xl) 0;
+            text-align: center;
+            border-bottom: 1px solid var(--glass-border);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .page-hero h1 {
+            font-size: 48px;
+            margin-bottom: var(--spacing-md);
+            color: var(--white);
+        }
+
+        .page-hero p {
+            font-size: 16px;
+            color: var(--grey);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            font-size: 12px;
+            color: var(--grey);
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .breadcrumb a {
+            color: var(--cyan);
+            cursor: pointer;
+            transition: color var(--transition-fast);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--white);
+        }
+
+        @media (max-width: 767px) {
+            .page-hero {
+                padding: var(--spacing-xl) 0;
+            }
+
+            .page-hero h1 {
+                font-size: 32px;
+            }
+
+            .page-hero p {
+                font-size: 14px;
+            }
+        }
+
+        /* Intro Text */
+        .page-intro {
+            font-size: 16px;
+            color: var(--grey);
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto var(--spacing-2xl);
+            text-align: center;
+        }
+
+        /* Service Cards Grid */
+        .service-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .service-card-large {
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(20px);
+            transition: all var(--transition-base);
+            animation: reveal 0.6s ease both;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card-large:nth-child(1) { animation-delay: 0s; }
+        .service-card-large:nth-child(2) { animation-delay: 0.15s; }
+        .service-card-large:nth-child(3) { animation-delay: 0.3s; }
+        .service-card-large:nth-child(4) { animation-delay: 0.45s; }
+
+        .service-card-large:hover {
+            transform: translateY(-8px);
+            border-color: var(--cyan);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .service-card-badge {
+            position: absolute;
+            top: var(--spacing-lg);
+            right: var(--spacing-lg);
+            background-color: var(--cyan);
+            color: var(--navy);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .service-card-btn-top {
+            align-self: flex-start;
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            color: var(--navy);
+            padding: 10px 20px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
+            margin-bottom: var(--spacing-lg);
+            transition: all var(--transition-fast);
+        }
+
+        .service-card-btn-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .service-card-large h3 {
+            font-size: 22px;
+            margin-bottom: var(--spacing-md);
+            color: var(--white);
+            margin-top: var(--spacing-md);
+        }
+
+        .service-card-large p {
+            font-size: 14px;
+            color: var(--grey);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .service-card-large ul {
+            list-style: none;
+            flex-grow: 1;
+        }
+
+        .service-card-large li {
+            font-size: 13px;
+            color: var(--grey);
+            margin-bottom: var(--spacing-sm);
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .service-card-large li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+            font-weight: 700;
+        }
+
+        .service-icon-large {
+            font-size: 40px;
+            color: var(--cyan);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .service-card-large:hover .service-icon-large {
+            animation: float 1s ease-in-out infinite;
+        }
+
+        @media (max-width: 1024px) {
+            .service-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Platform Grid */
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .platform-glass-card {
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(20px);
+            text-align: center;
+            transition: all var(--transition-base);
+            animation: reveal 0.6s ease both;
+            cursor: pointer;
+        }
+
+        .platform-glass-card:hover {
+            border-color: var(--cyan);
+            box-shadow: var(--glow-cyan);
+            transform: translateY(-6px);
+        }
+
+        .platform-glass-card h3 {
+            font-size: 18px;
+            margin-bottom: var(--spacing-sm);
+            color: var(--white);
+        }
+
+        .platform-glass-card p {
+            font-size: 12px;
+            color: var(--grey);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .platform-glass-btn {
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            color: var(--navy);
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            width: 100%;
+        }
+
+        .platform-glass-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .platform-icon {
+            font-size: 32px;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        @media (max-width: 1024px) {
+            .platform-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .pricing-card {
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(20px);
+            transition: all 0.6s ease;
+            animation: reveal 0.6s ease both;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:nth-child(1) { animation-delay: 0s; }
+        .pricing-card:nth-child(2) { animation-delay: 0.15s; }
+        .pricing-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .pricing-card.popular {
+            border-color: var(--cyan);
+            box-shadow: var(--glow-cyan);
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover:not(.popular) {
+            border-color: var(--cyan);
+            transform: translateY(-8px);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: var(--spacing-lg);
+            right: var(--spacing-lg);
+            background-color: var(--cyan);
+            color: var(--navy);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .pricing-badge.popular {
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            color: white;
+        }
+
+        .pricing-name {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .pricing-price {
+            font-size: 28px;
+            color: var(--cyan);
+            font-weight: 800;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: var(--spacing-lg);
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            font-size: 13px;
+            color: var(--grey);
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+            font-weight: 700;
+        }
+
+        .pricing-btn {
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            color: var(--navy);
+            padding: 12px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            width: 100%;
+        }
+
+        .pricing-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+        }
+
+        /* Info Box */
+        .info-box {
+            background-color: rgba(255, 165, 0, 0.1);
+            border: 1px solid rgba(255, 165, 0, 0.3);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            color: #FFB800;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: var(--spacing-2xl);
+            text-align: center;
+        }
+
+        /* Trust Icons */
+        .trust-icons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .trust-icon-card {
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            text-align: center;
+            animation: reveal 0.6s ease both;
+        }
+
+        .trust-icon-card:nth-child(1) { animation-delay: 0s; }
+        .trust-icon-card:nth-child(2) { animation-delay: 0.1s; }
+        .trust-icon-card:nth-child(3) { animation-delay: 0.2s; }
+        .trust-icon-card:nth-child(4) { animation-delay: 0.3s; }
+
+        .trust-icon {
+            font-size: 32px;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .trust-icon-card p {
+            font-size: 13px;
+            color: var(--grey);
+            margin: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .trust-icons {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .trust-icons {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* FAQ Accordion */
+        .faq-accordion {
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .faq-item {
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-md);
+            overflow: hidden;
+            animation: reveal 0.6s ease both;
+        }
+
+        .faq-item:nth-child(1) { animation-delay: 0s; }
+        .faq-item:nth-child(2) { animation-delay: 0.1s; }
+        .faq-item:nth-child(3) { animation-delay: 0.2s; }
+        .faq-item:nth-child(4) { animation-delay: 0.3s; }
+        .faq-item:nth-child(5) { animation-delay: 0.4s; }
+
+        .faq-question {
+            background-color: var(--glass-bg);
+            padding: var(--spacing-lg);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all var(--transition-fast);
+            font-weight: 600;
+            color: var(--white);
+            user-select: none;
+            min-height: 44px;
+        }
+
+        .faq-question:hover {
+            background-color: rgba(0, 212, 255, 0.05);
+        }
+
+        .faq-item.active .faq-question {
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .faq-toggle {
+            font-size: 20px;
+            color: var(--cyan);
+            transition: transform var(--transition-fast);
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: var(--spacing-lg);
+        }
+
+        .faq-answer p {
+            font-size: 14px;
+            color: var(--grey);
+            margin: 0;
+        }
+
+        /* Contact Form Page */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .contact-info {
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(20px);
+        }
+
+        .contact-info h3 {
+            font-size: 18px;
+            margin-bottom: var(--spacing-md);
+            color: var(--white);
+        }
+
+        .contact-detail {
+            margin-bottom: var(--spacing-lg);
+            font-size: 14px;
+            color: var(--grey);
+            line-height: 1.6;
+        }
+
+        .contact-detail strong {
+            color: var(--cyan);
+        }
+
+        .contact-form-wrapper {
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(20px);
+        }
+
+        .contact-form-wrapper h3 {
+            font-size: 18px;
+            margin-bottom: var(--spacing-lg);
+            color: var(--white);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px var(--spacing-sm);
+            background-color: var(--navy);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            color: var(--white);
+            font-size: 14px;
+            margin-bottom: var(--spacing-md);
+            transition: all var(--transition-fast);
+        }
+
+        .form-input::placeholder {
+            color: var(--grey);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--cyan);
+            background-color: rgba(0, 212, 255, 0.05);
+            box-shadow: 0 0 12px rgba(0, 212, 255, 0.2);
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px var(--spacing-lg);
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            color: var(--navy);
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .form-success-msg {
+            display: none;
+            background-color: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--cyan);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            color: var(--cyan);
+            text-align: center;
+            font-weight: 600;
+            margin-top: var(--spacing-md);
+        }
+
+        .form-success-msg.show {
+            display: block;
+        }
+
+        @media (max-width: 1024px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* About Page */
+        .about-section {
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .about-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-2xl);
+            align-items: start;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .about-two-col h2 {
+            font-size: 48px;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .about-two-col p {
+            font-size: 16px;
+            color: var(--grey);
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        @media (max-width: 1024px) {
+            .about-two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Service Pillars */
+        .service-pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .pillar-card {
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            animation: reveal 0.6s ease both;
+        }
+
+        .pillar-card:nth-child(1) { animation-delay: 0s; }
+        .pillar-card:nth-child(2) { animation-delay: 0.15s; }
+        .pillar-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .pillar-icon {
+            font-size: 40px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .pillar-card h3 {
+            font-size: 18px;
+            margin-bottom: var(--spacing-sm);
+            color: var(--white);
+        }
+
+        .pillar-card p {
+            font-size: 13px;
+            color: var(--grey);
+            margin: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .service-pillars {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .service-pillars {
+                grid-template-columns: 1fr;
+            }
+
+            .about-two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Company Info Box */
+        .company-info-box {
+            background-color: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-2xl);
+            animation: reveal 0.6s ease;
+        }
+
+        .company-info-item {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--glass-border);
+            margin-bottom: var(--spacing-md);
+            font-size: 14px;
+        }
+
+        .company-info-item:last-child {
+            border-bottom: none;
+        }
+
+        .company-info-label {
+            color: var(--grey);
+            font-weight: 600;
+        }
+
+        .company-info-value {
+            color: var(--cyan);
+            font-weight: 700;
+        }
+
+        /* States Pills */
+        .states-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .state-pill {
+            background-color: var(--glass-bg);
+            border: 1px solid var(--cyan);
+            color: var(--cyan);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* CTA Sections */
+        .page-cta-section {
+            text-align: center;
+            padding: var(--spacing-2xl);
+            background: linear-gradient(135deg, rgba(0, 87, 255, 0.1), rgba(0, 212, 255, 0.1));
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .page-cta-section h2 {
+            font-size: 36px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .page-cta-section p {
+            font-size: 16px;
+            color: var(--grey);
+            margin-bottom: var(--spacing-xl);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 14px 32px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-size: 14px;
+        }
+
+        .cta-btn-primary {
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            color: var(--navy);
+        }
+
+        .cta-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .cta-btn-secondary {
+            background-color: var(--green-wa);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cta-btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
+        }
+
+        @media (max-width: 767px) {
+            .page-cta-section {
+                padding: var(--spacing-xl);
+            }
+
+            .page-cta-section h2 {
+                font-size: 28px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════
+         ANNOUNCEMENT BAR (Rotating Messages)
+         ═══════════════════════════════════════════════════════════════════════════════════ -->
+    <div class="announcement-bar" id="announcementBar">
+        <span id="announcementText">🚀 Professional eCommerce VA Services — Amazon · eBay · TikTok Shop</span>
+        <button class="announcement-close" onclick="closeAnnouncement()">×</button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════
+         HEADER & NAVIGATION
+         ═══════════════════════════════════════════════════════════════════════════════════ -->
+    <header>
+        <div class="logo">
+            <div class="logo-icon">EP</div>
+            <div>EPRIMEX</div>
+        </div>
+
+        <nav>
+            <a class="nav-link active" onclick="showPage('home')">Home</a>
+            <a class="nav-link" onclick="showPage('ecommerce')">Services</a>
+            <a class="nav-link" onclick="showPage('banking')">Banking</a>
+            <a class="nav-link" onclick="showPage('uk-ltd')">UK LTD</a>
+            <a class="nav-link" onclick="showPage('usa-llc')">USA LLC</a>
+            <a class="nav-link" onclick="showPage('about')">About</a>
+            <a class="nav-link" onclick="showPage('contact')">Contact</a>
+        </nav>
+
+        <button class="cta-wa" onclick="openContactModal()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            WhatsApp Us
+        </button>
+
+        <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <a class="mobile-nav-link active" onclick="showPage('home'); toggleMobileNav();">Home</a>
+        <a class="mobile-nav-link" onclick="showPage('ecommerce'); toggleMobileNav();">Services</a>
+        <a class="mobile-nav-link" onclick="showPage('banking'); toggleMobileNav();">Banking</a>
+        <a class="mobile-nav-link" onclick="showPage('uk-ltd'); toggleMobileNav();">UK LTD</a>
+        <a class="mobile-nav-link" onclick="showPage('usa-llc'); toggleMobileNav();">USA LLC</a>
+        <a class="mobile-nav-link" onclick="showPage('about'); toggleMobileNav();">About</a>
+        <a class="mobile-nav-link" onclick="showPage('contact'); toggleMobileNav();">Contact</a>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════
+         MAIN CONTENT
+         ═══════════════════════════════════════════════════════════════════════════════════ -->
+    <main>
+        <!-- HOME PAGE -->
+        <section class="page" id="home">
+            <!-- SECTION 1: HERO BANNER -->
+            <div class="hero">
+                <!-- Particle Canvas (Desktop Only) -->
+                <canvas class="hero-canvas" id="particleCanvas"></canvas>
+
+                <!-- Animated Gradient Blobs -->
+                <div class="hero-blobs">
+                    <div class="hero-blob hero-blob-1"></div>
+                    <div class="hero-blob hero-blob-2"></div>
+                    <div class="hero-blob hero-blob-3"></div>
+                </div>
+
+                <!-- Hero Content (Left) -->
+                <div class="hero-content">
+                    <div class="hero-eyebrow">🇬🇧 London-Based · Globally Trusted</div>
+                    <h1 class="hero-h1">
+                        Grow Your eCommerce Business<br>
+                        <span class="typewriter-text">With Amazon VA Services</span>
+                    </h1>
+                    <p class="hero-subheading">EPRIMEX Ltd provides professional Amazon, eBay, and TikTok Shop virtual assistant services along with banking and company formation solutions — empowering entrepreneurs globally from London.</p>
+                    
+                    <div class="hero-buttons">
+                        <button class="btn-primary" onclick="openContactModal()">Get Started →</button>
+                        <button class="btn-wa" onclick="window.open('https://wa.me/447828740521', '_blank')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-2.054-2.052-5.378-2.052-7.432 0m4.62-4.62c2.884 2.884 2.884 7.562 0 10.446m4.624-14.624c4.868 4.868 4.868 12.768 0 17.636M1.34 1.34c6.526 6.526 6.526 17.102 0 23.628"/>
+                            </svg>
+                            WhatsApp Us
+                        </button>
+                        <button class="btn-ghost" onclick="document.getElementById('platforms-section').scrollIntoView({behavior:'smooth'})">Explore Services ↓</button>
+                    </div>
+
+                    <div class="hero-badges">
+                        <div class="hero-badge">
+                            <div class="hero-badge-dot"></div>
+                            <span>✅ Companies House Registered · No. 16834313</span>
+                        </div>
+                        <div class="hero-badge">
+                            <div class="hero-badge-dot"></div>
+                            <span>🔒 Secure & Confidential</span>
+                        </div>
+                        <div class="hero-badge">
+                            <div class="hero-badge-dot"></div>
+                            <span>⚡ Fast Turnaround</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Cards (Right - Desktop Only) -->
+                <div class="hero-cards">
+                    <div class="card-3d card-1">
+                        <div class="card-3d-icon">🛒</div>
+                        <h3>Amazon VA</h3>
+                        <p style="font-size: 13px; color: var(--grey); margin-bottom: 0;">Professional listing optimization & management</p>
+                        <div class="card-3d-price" style="margin-top: var(--spacing-md);">From £299/mo</div>
+                    </div>
+                    <div class="card-3d card-2">
+                        <div class="card-3d-icon">📋</div>
+                        <h3>UK LTD Formation</h3>
+                        <p style="font-size: 13px; color: var(--grey); margin-bottom: 0;">Complete company registration</p>
+                        <div class="card-3d-price" style="margin-top: var(--spacing-md);">From £140</div>
+                    </div>
+                    <div class="card-3d card-3">
+                        <div class="card-3d-icon">🏦</div>
+                        <h3>Banking Solutions</h3>
+                        <p style="font-size: 13px; color: var(--grey); margin-bottom: 0;">13 international platforms</p>
+                        <div class="card-3d-price" style="margin-top: var(--spacing-md);">Fast Setup</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: TRUST STRIP / MARQUEE -->
+            <div class="trust-strip">
+                <div class="marquee" id="marquee">
+                    <span class="marquee-item">Amazon Seller Services</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">eBay Management</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">TikTok Shop</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">PayPal</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">Stripe</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">Wise</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">Airwallex</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">UK LTD</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">USA LLC</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">Company Formation</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">Payoneer</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">WorldFirst</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">FBA Support</span>
+                    
+                    <!-- Duplicate for seamless loop -->
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">Amazon Seller Services</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">eBay Management</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">TikTok Shop</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">PayPal</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">Stripe</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">Wise</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">Airwallex</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">UK LTD</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">USA LLC</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">Company Formation</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">Payoneer</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">WorldFirst</span>
+                    <span class="marquee-sep">·</span>
+                    <span class="marquee-item">FBA Support</span>
+                </div>
+            </div>
+
+            <!-- SECTION 3: BUSINESS INTRODUCTION -->
+            <section class="container reveal" style="margin: var(--spacing-2xl) auto;">
+                <div class="intro-section">
+                    <div>
+                        <h2 class="intro-heading">Your Dedicated Business Growth Partner</h2>
+                        <p class="intro-text">At EPRIMEX Ltd, we specialise in helping eCommerce sellers, entrepreneurs, and businesses scale with professional virtual assistant services, international banking setup, and company formation solutions in the UK and USA. Based in London and operating globally, we deliver results.</p>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card reveal">
+                            <div class="stat-number counter" data-target="500">0</div>
+                            <div class="stat-label">Clients Served</div>
+                        </div>
+                        <div class="stat-card reveal" style="animation-delay: 0.15s;">
+                            <div class="stat-number counter" data-target="13">0</div>
+                            <div class="stat-label">Banking Platforms</div>
+                        </div>
+                        <div class="stat-card reveal" style="animation-delay: 0.3s;">
+                            <div class="stat-number counter" data-target="3">0</div>
+                            <div class="stat-label">Countries of Formation</div>
+                        </div>
+                        <div class="stat-card reveal" style="animation-delay: 0.45s;">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support Available</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 4: SERVICES OVERVIEW -->
+            <section class="container reveal" style="margin: var(--spacing-2xl) auto;">
+                <div class="services-heading">
+                    <h2>Our Core Services</h2>
+                    <p>Professional solutions for eCommerce sellers and entrepreneurs</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🛒</div>
+                        <h3>eCommerce VA Services</h3>
+                        <p class="service-desc">Amazon · eBay · TikTok Shop management by expert VAs</p>
+                        <ul class="service-features">
+                            <li>Product Listing & Optimization</li>
+                            <li>Order & Customer Management</li>
+                            <li>PPC & Store Growth</li>
+                        </ul>
+                        <button class="service-btn" onclick="openContactModal()">Explore →</button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">📦</div>
+                        <h3>Amazon Wholesale</h3>
+                        <p class="service-desc">End-to-end wholesale management for FBA sellers</p>
+                        <ul class="service-features">
+                            <li>Supplier & Brand Research</li>
+                            <li>Inventory & FBA Support</li>
+                            <li>Store Management</li>
+                        </ul>
+                        <button class="service-btn" onclick="openContactModal()">Explore →</button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">💳</div>
+                        <h3>Banking Solutions</h3>
+                        <p class="service-desc">13 international payment platforms, professionally set up</p>
+                        <ul class="service-features">
+                            <li>PayPal · Stripe · Wise · Airwallex</li>
+                            <li>Business Account Setup</li>
+                            <li>Global Payment Infrastructure</li>
+                        </ul>
+                        <button class="service-btn" onclick="openContactModal()">Explore →</button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🏢</div>
+                        <h3>Company Formation</h3>
+                        <p class="service-desc">UK LTD & USA LLC registered professionally</p>
+                        <ul class="service-features">
+                            <li>Companies House Filing</li>
+                            <li>EIN & UTR Number</li>
+                            <li>Full Documentation</li>
+                        </ul>
+                        <button class="service-btn" onclick="openContactModal()">Explore →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 5: PLATFORM HIGHLIGHTS -->
+            <section class="container reveal" style="margin: var(--spacing-2xl) auto;" id="platforms-section">
+                <div class="platforms-section">
+                    <h2 class="platforms-heading">Platforms We Master</h2>
+                </div>
+                <div class="platforms-grid">
+                    <div class="platform-card reveal">
+                        <div class="platform-logo">🅰️</div>
+                        <h3>Amazon</h3>
+                        <p style="font-size: 13px; color: var(--grey); margin-bottom: var(--spacing-md);">Virtual Assistant & Wholesale</p>
+                        <ul class="platform-features">
+                            <li>Product Listing Optimization</li>
+                            <li>Competitor Analysis</li>
+                            <li>PPC Campaign Management</li>
+                            <li>Order Management</li>
+                            <li>Customer Service</li>
+                            <li>FBA & Inventory</li>
+                        </ul>
+                        <button class="platform-btn" onclick="openContactModal()">Hire Amazon VA →</button>
+                    </div>
+
+                    <div class="platform-card reveal" style="animation-delay: 0.15s;">
+                        <div class="platform-logo">🔴</div>
+                        <h3>eBay</h3>
+                        <p style="font-size: 13px; color: var(--grey); margin-bottom: var(--spacing-md);">Store Management</p>
+                        <ul class="platform-features">
+                            <li>Item Creation & Editing</li>
+                            <li>Pricing Optimization</li>
+                            <li>Order Fulfillment</li>
+                            <li>Seller Ratings Management</li>
+                            <li>Auction Monitoring</li>
+                            <li>Customer Communication</li>
+                        </ul>
+                        <button class="platform-btn" onclick="openContactModal()">Hire eBay VA →</button>
+                    </div>
+
+                    <div class="platform-card reveal" style="animation-delay: 0.3s;">
+                        <div class="platform-logo">🎵</div>
+                        <h3>TikTok Shop</h3>
+                        <p style="font-size: 13px; color: var(--grey); margin-bottom: var(--spacing-md);">Management & Growth</p>
+                        <ul class="platform-features">
+                            <li>Product Listing Setup</li>
+                            <li>Shop Optimization</li>
+                            <li>Live Streaming Support</li>
+                            <li>Order Processing</li>
+                            <li>Analytics & Reporting</li>
+                            <li>Content Strategy</li>
+                        </ul>
+                        <button class="platform-btn" onclick="openContactModal()">Hire TikTok Manager →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 6: COMPANY FORMATION HIGHLIGHTS -->
+            <section class="container reveal" style="margin: var(--spacing-2xl) auto;">
+                <div class="formation-section">
+                    <div class="formation-content">
+                        <h2>Register Your Business with Confidence</h2>
+                        <p>EPRIMEX Ltd handles UK LTD and USA LLC formation with complete documentation, fast processing, and dedicated support — from just £140.</p>
+                        <button class="formation-cta" onclick="openContactModal()">Start Formation →</button>
+                    </div>
+                    <div class="formation-cards">
+                        <div class="formation-card">
+                            <div class="formation-icon">🇬🇧</div>
+                            <div>
+                                <h3>UK LTD Formation</h3>
+                                <p>From £140 · Companies House Registered · UTR & Auth Code</p>
+                            </div>
+                        </div>
+                        <div class="formation-card">
+                            <div class="formation-icon">🇺🇸</div>
+                            <div>
+                                <h3>USA LLC Formation</h3>
+                                <p>From $165 · 6 States Available · EIN Included</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 7: BANKING SOLUTIONS -->
+            <section class="container reveal" style="margin: var(--spacing-2xl) auto;">
+                <div class="banking-section">
+                    <h2 class="banking-heading">13 International Banking Platforms</h2>
+                    <p class="banking-subheading">We help you open and manage professional business accounts globally</p>
+                    <div class="platforms-logos">
+                        <div class="platform-logo-card reveal">
+                            <div style="font-size: 32px;">₽</div>
+                            <p class="platform-logo-card-name">PayPal</p>
+                        </div>
+                        <div class="platform-logo-card reveal" style="animation-delay: 0.1s;">
+                            <div style="font-size: 32px;">💰</div>
+                            <p class="platform-logo-card-name">Payoneer</p>
+                        </div>
+                        <div class="platform-logo-card reveal" style="animation-delay: 0.2s;">
+                            <div style="font-size: 32px;">🌍</div>
+                            <p class="platform-logo-card-name">WorldFirst</p>
+                        </div>
+                        <div class="platform-logo-card reveal" style="animation-delay: 0.3s;">
+                            <div style="font-size: 32px;">💳</div>
+                            <p class="platform-logo-card-name">Stripe</p>
+                        </div>
+                        <div class="platform-logo-card reveal" style="animation-delay: 0.4s;">
+                            <div style="font-size: 32px;">🏦</div>
+                            <p class="platform-logo-card-name">Tide</p>
+                        </div>
+                        <div class="platform-logo-card reveal" style="animation-delay: 0.5s;">
+                            <div style="font-size: 32px;">💸</div>
+                            <p class="platform-logo-card-name">Sunrate</p>
+                        </div>
+                        <div class="platform-logo-card reveal" style="animation-delay: 0.6s;">
+                            <div style="font-size: 32px;">💱</div>
+                            <p class="platform-logo-card-name">Wise</p>
+                        </div>
+                        <div class="platform-logo-card reveal" style="animation-delay: 0.7s;">
+                            <div style="font-size: 32px;">🔹</div>
+                            <p class="platform-logo-card-name">Zyla</p>
+                        </div>
+                        <div class="platform-logo-card reveal" style="animation-delay: 0.8s;">
+                            <div style="font-size: 32px;">🌐</div>
+                            <p class="platform-logo-card-name">Airwallex</p>
+                        </div>
+                        <div class="platform-logo-card reveal" style="animation-delay: 0.9s;">
+                            <div style="font-size: 32px;">💎</div>
+                            <p class="platform-logo-card-name">Mollie</p>
+                        </div>
+                        <div class="platform-logo-card reveal" style="animation-delay: 1s;">
+                            <div style="font-size: 32px;">🌟</div>
+                            <p class="platform-logo-card-name">ZionPe</p>
+                        </div>
+                        <div class="platform-logo-card reveal" style="animation-delay: 1.1s;">
+                            <div style="font-size: 32px;">🎯</div>
+                            <p class="platform-logo-card-name">Wallester</p>
+                        </div>
+                        <div class="platform-logo-card reveal" style="animation-delay: 1.2s;">
+                            <div style="font-size: 32px;">🏓</div>
+                            <p class="platform-logo-card-name">PingPong</p>
+                        </div>
+                    </div>
+                    <button class="banking-cta" onclick="showPage('banking')">Explore Banking Solutions →</button>
+                </div>
+            </section>
+
+            <!-- SECTION 8: HOW IT WORKS -->
+            <section class="container reveal" style="margin: var(--spacing-2xl) auto;">
+                <div class="how-it-works">
+                    <h2>How We Work</h2>
+                    <div class="steps-container">
+                        <div class="step-line"></div>
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h3>📋 Submit Your Inquiry</h3>
+                            <p>Fill our quick form with your service requirements</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h3>🤝 Consultation Call</h3>
+                            <p>We discuss your needs and recommend the best solution</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h3>⚡ We Get to Work</h3>
+                            <p>Our expert team starts immediately with full transparency</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <h3>📈 You See Results</h3>
+                            <p>Track progress and grow your business with our support</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 9: TESTIMONIALS -->
+            <section class="container reveal" style="margin: var(--spacing-2xl) auto;">
+                <div class="testimonials-section">
+                    <h2>Trusted by eCommerce Sellers Across the UK</h2>
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-quote">EPRIMEX helped me launch my Amazon FBA store from scratch. Their VA team handled everything — listings, PPC, customer messages. Brilliant service.</p>
+                            <div class="testimonial-author">James Thornton</div>
+                            <div class="testimonial-city">Manchester, UK</div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-quote">Opened my UK LTD in under a week. All documents were clean, professional, and the team was always available on WhatsApp. Highly recommended.</p>
+                            <div class="testimonial-author">Umar Farooq</div>
+                            <div class="testimonial-city">Birmingham, UK</div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-quote">Their banking solutions team got me set up with Wise and Airwallex in days. Saved me weeks of hassle. EPRIMEX are the real deal.</p>
+                            <div class="testimonial-author">Daniel Hughes</div>
+                            <div class="testimonial-city">Leeds, UK</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 10: FINAL CTA -->
+            <section class="container reveal" style="margin: var(--spacing-2xl) auto;">
+                <div class="final-cta-section">
+                    <h2>Ready to Scale Your Business?</h2>
+                    <p>Join 500+ clients who trust EPRIMEX Ltd for their eCommerce, banking, and formation needs.</p>
+                    <div class="final-cta-buttons">
+                        <button class="btn-cta-primary" onclick="openContactModal()">Get Started Today →</button>
+                        <button class="btn-cta-secondary" onclick="window.open('https://wa.me/447828740521', '_blank')">WhatsApp Now</button>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- ECOMMERCE VA SERVICES PAGE -->
+        <section class="page" id="ecommerce">
+            <div class="page-hero">
+                <div class="breadcrumb"><a onclick="showPage('home')">Home</a> > eCommerce Services</div>
+                <h1>eCommerce Virtual Assistant Services</h1>
+                <p>Professional Amazon, eBay & TikTok Shop management from expert UK-based virtual assistants</p>
+            </div>
+
+            <div class="container">
+                <div class="service-cards-grid">
+                    <div class="service-card-large">
+                        <span class="service-card-badge">Most Popular</span>
+                        <button class="service-card-btn-top" onclick="openContactModal()">Hire Now →</button>
+                        <div class="service-icon-large">🛒</div>
+                        <h3>Amazon Virtual Assistant</h3>
+                        <p>Professional Amazon VA solutions for sellers and brands. We manage your store end-to-end so you can focus on growth.</p>
+                        <ul class="service-features">
+                            <li>Product Hunting & Research</li>
+                            <li>Product Listing & Optimization</li>
+                            <li>Account Management</li>
+                            <li>Order Processing & Tracking</li>
+                            <li>Customer Support Management</li>
+                            <li>PPC Campaign Assistance</li>
+                            <li>Inventory Management</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card-large">
+                        <button class="service-card-btn-top" onclick="openContactModal()">Get Started →</button>
+                        <div class="service-icon-large">📦</div>
+                        <h3>Amazon Wholesale Services</h3>
+                        <p>Professional wholesale business management for Amazon FBA sellers. Source, list, and sell at scale.</p>
+                        <ul class="service-features">
+                            <li>Wholesale Product Research</li>
+                            <li>Brand Approval Assistance</li>
+                            <li>Supplier Hunting & Vetting</li>
+                            <li>Inventory Handling & Planning</li>
+                            <li>Full Store Management</li>
+                            <li>FBA Inbound & Support</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card-large">
+                        <button class="service-card-btn-top" onclick="openContactModal()">Get Started →</button>
+                        <div class="service-icon-large">🏪</div>
+                        <h3>eBay Virtual Assistant</h3>
+                        <p>Complete eBay store handling and management solutions. From listing to customer service — we handle it.</p>
+                        <ul class="service-features">
+                            <li>Product Listings & Bulk Upload</li>
+                            <li>SEO Title & Description Optimization</li>
+                            <li>Order Management & Tracking</li>
+                            <li>Customer Support & Returns</li>
+                            <li>Complete Store Handling</li>
+                            <li>Product Research & Pricing</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card-large">
+                        <button class="service-card-btn-top" onclick="openContactModal()">Hire Now →</button>
+                        <div class="service-icon-large">🎵</div>
+                        <h3>TikTok Shop Virtual Assistant</h3>
+                        <p>Professional TikTok Shop management and growth assistance. Get your products in front of millions.</p>
+                        <ul class="service-features">
+                            <li>TikTok Product Upload & Listing</li>
+                            <li>Store Setup & Management</li>
+                            <li>Order Processing & Fulfilment</li>
+                            <li>Customer Handling & Queries</li>
+                            <li>Product Optimization & SEO</li>
+                            <li>TikTok Shop Growth Assistance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="page-cta-section">
+                    <h2>Ready to scale your eCommerce store?</h2>
+                    <div class="cta-buttons">
+                        <button class="cta-btn cta-btn-primary" onclick="openContactModal()">Get a Free Consultation</button>
+                        <button class="cta-btn cta-btn-secondary" onclick="window.open('https://wa.me/447828740521', '_blank')">WhatsApp Us</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BANKING SOLUTIONS PAGE -->
+        <section class="page" id="banking">
+            <div class="page-hero">
+                <div class="breadcrumb"><a onclick="showPage('home')">Home</a> > Banking Solutions</div>
+                <h1>Banking & Payment Solutions</h1>
+                <p>Professional setup and management for 13 global payment platforms — designed for eCommerce sellers and businesses.</p>
+            </div>
+
+            <div class="container">
+                <p class="page-intro">Whether you need a PayPal business account, Stripe integration, or a multi-currency Wise account — EPRIMEX Ltd handles the entire setup professionally, saving you time and ensuring compliance.</p>
+
+                <div class="platform-grid">
+                    <div class="platform-glass-card reveal">
+                        <div class="platform-icon">₽</div>
+                        <h3>PayPal</h3>
+                        <p>Professional PayPal business account setup & management</p>
+                        <button class="platform-glass-btn" onclick="openContactModal()">Open Now →</button>
+                    </div>
+
+                    <div class="platform-glass-card reveal" style="animation-delay: 0.1s;">
+                        <div class="platform-icon">💰</div>
+                        <h3>Payoneer</h3>
+                        <p>Global Payoneer account assistance for sellers</p>
+                        <button class="platform-glass-btn" onclick="openContactModal()">Open Now →</button>
+                    </div>
+
+                    <div class="platform-glass-card reveal" style="animation-delay: 0.2s;">
+                        <div class="platform-icon">🌍</div>
+                        <h3>WorldFirst</h3>
+                        <p>WorldFirst multi-currency account setup</p>
+                        <button class="platform-glass-btn" onclick="openContactModal()">Open Now →</button>
+                    </div>
+
+                    <div class="platform-glass-card reveal" style="animation-delay: 0.3s;">
+                        <div class="platform-icon">💳</div>
+                        <h3>Stripe</h3>
+                        <p>Professional Stripe payment integration service</p>
+                        <button class="platform-glass-btn" onclick="openContactModal()">Open Now →</button>
+                    </div>
+
+                    <div class="platform-glass-card reveal" style="animation-delay: 0.4s;">
+                        <div class="platform-icon">🏦</div>
+                        <h3>Tide</h3>
+                        <p>UK business banking with Tide — fast setup</p>
+                        <button class="platform-glass-btn" onclick="openContactModal()">Open Now →</button>
+                    </div>
+
+                    <div class="platform-glass-card reveal" style="animation-delay: 0.5s;">
+                        <div class="platform-icon">💸</div>
+                        <h3>Sunrate</h3>
+                        <p>Sunrate cross-border payment account assistance</p>
+                        <button class="platform-glass-btn" onclick="openContactModal()">Open Now →</button>
+                    </div>
+
+                    <div class="platform-glass-card reveal" style="animation-delay: 0.6s;">
+                        <div class="platform-icon">💱</div>
+                        <h3>Wise</h3>
+                        <p>International Wise business banking & transfers</p>
+                        <button class="platform-glass-btn" onclick="openContactModal()">Open Now →</button>
+                    </div>
+
+                    <div class="platform-glass-card reveal" style="animation-delay: 0.7s;">
+                        <div class="platform-icon">🔹</div>
+                        <h3>Zyla</h3>
+                        <p>Zyla payment platform professional setup</p>
+                        <button class="platform-glass-btn" onclick="openContactModal()">Open Now →</button>
+                    </div>
+
+                    <div class="platform-glass-card reveal" style="animation-delay: 0.8s;">
+                        <div class="platform-icon">🌐</div>
+                        <h3>Airwallex</h3>
+                        <p>Global Airwallex payment infrastructure support</p>
+                        <button class="platform-glass-btn" onclick="openContactModal()">Open Now →</button>
+                    </div>
+
+                    <div class="platform-glass-card reveal" style="animation-delay: 0.9s;">
+                        <div class="platform-icon">💎</div>
+                        <h3>Mollie</h3>
+                        <p>European Mollie payment gateway setup</p>
+                        <button class="platform-glass-btn" onclick="openContactModal()">Open Now →</button>
+                    </div>
+
+                    <div class="platform-glass-card reveal" style="animation-delay: 1s;">
+                        <div class="platform-icon">🌟</div>
+                        <h3>ZionPe</h3>
+                        <p>ZionPe business payment account assistance</p>
+                        <button class="platform-glass-btn" onclick="openContactModal()">Open Now →</button>
+                    </div>
+
+                    <div class="platform-glass-card reveal" style="animation-delay: 1.1s;">
+                        <div class="platform-icon">🎯</div>
+                        <h3>Wallester</h3>
+                        <p>Wallester business card & account setup</p>
+                        <button class="platform-glass-btn" onclick="openContactModal()">Open Now →</button>
+                    </div>
+
+                    <div class="platform-glass-card reveal" style="animation-delay: 1.2s;">
+                        <div class="platform-icon">🏓</div>
+                        <h3>PingPong</h3>
+                        <p>PingPong global seller payment account</p>
+                        <button class="platform-glass-btn" onclick="openContactModal()">Open Now →</button>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    ⚠️ No pricing listed. Contact us for a personalised quote based on your requirements.
+                </div>
+
+                <div class="page-cta-section">
+                    <h2>Ready to manage payments globally?</h2>
+                    <button class="cta-btn cta-btn-primary" onclick="openContactModal()">Enquire About Banking Solutions →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- UK LTD FORMATION PAGE -->
+        <section class="page" id="uk-ltd">
+            <div class="page-hero">
+                <div class="breadcrumb"><a onclick="showPage('home')">Home</a> > UK LTD Formation</div>
+                <h1>UK LTD Company Formation</h1>
+                <p>Fast, professional UK company registration with complete support — from £140. Registered with Companies House.</p>
+            </div>
+
+            <div class="container">
+                <p class="page-intro">EPRIMEX Ltd registers your UK Limited Company with full documentation, fast processing, and dedicated WhatsApp support throughout the process.</p>
+
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-badge">Best Value</div>
+                        <div class="pricing-name">STARTER</div>
+                        <div class="pricing-price">£140</div>
+                        <ul class="pricing-features">
+                            <li>UK LTD Registration</li>
+                            <li>Companies House Filing</li>
+                            <li>Digital Company Documents</li>
+                            <li>Memorandum & Articles</li>
+                            <li>Share Certificate</li>
+                            <li>ID Verification</li>
+                            <li>WhatsApp Support</li>
+                        </ul>
+                        <button class="pricing-btn" onclick="openContactModal()">Get Started →</button>
+                    </div>
+
+                    <div class="pricing-card popular">
+                        <div class="pricing-badge popular">Most Popular</div>
+                        <div class="pricing-name">SILVER</div>
+                        <div class="pricing-price">£170</div>
+                        <ul class="pricing-features">
+                            <li>UK LTD Registration</li>
+                            <li>Companies House Filing</li>
+                            <li>Registered Office Address</li>
+                            <li>UTR Number</li>
+                            <li>Authentication Code</li>
+                            <li>Digital Documents Package</li>
+                            <li>ID Verification</li>
+                        </ul>
+                        <button class="pricing-btn" onclick="openContactModal()">Get Started →</button>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-badge">Premium</div>
+                        <div class="pricing-name">GOLD</div>
+                        <div class="pricing-price">£200</div>
+                        <ul class="pricing-features">
+                            <li>UK LTD Registration</li>
+                            <li>London Registered Office</li>
+                            <li>Director Service Address</li>
+                            <li>UTR Number</li>
+                            <li>Authentication Code</li>
+                            <li>Full Digital Documents</li>
+                            <li>Priority Support</li>
+                        </ul>
+                        <button class="pricing-btn" onclick="openContactModal()">Get Started →</button>
+                    </div>
+                </div>
+
+                <div class="trust-icons">
+                    <div class="trust-icon-card">
+                        <div class="trust-icon">🏛️</div>
+                        <p>Registered with Companies House</p>
+                    </div>
+                    <div class="trust-icon-card">
+                        <div class="trust-icon">🔒</div>
+                        <p>Secure Document Handling</p>
+                    </div>
+                    <div class="trust-icon-card">
+                        <div class="trust-icon">⚡</div>
+                        <p>Fast Processing — 24-48 hrs</p>
+                    </div>
+                    <div class="trust-icon-card">
+                        <div class="trust-icon">👨‍💼</div>
+                        <p>Dedicated Support Team</p>
+                    </div>
+                </div>
+
+                <h2 style="text-align: center; margin-bottom: var(--spacing-2xl);">Frequently Asked Questions</h2>
+                <div class="faq-accordion">
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <div class="faq-question">
+                            How long does UK LTD formation take?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Usually 24–48 working hours after document submission. We handle all Companies House filing and paperwork on your behalf.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <div class="faq-question">
+                            Do I need to be a UK resident?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No — we assist non-UK residents with UK LTD formation. You'll need a valid passport and proof of address from your home country.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <div class="faq-question">
+                            What documents do I need to provide?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Valid photo ID (passport or national ID) and proof of address (utility bill, bank statement, or government letter dated within the last 3 months).</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <div class="faq-question">
+                            Will I get a registered office address?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes — Silver and Gold packages include a registered office address in the UK. The Starter package requires you to provide your own address.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <div class="faq-question">
+                            What is the Authentication Code used for?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The Authentication Code is required to make changes to your company details at Companies House. It provides secure access to your company record and is essential for future updates.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-cta-section">
+                    <h2>Ready to register your UK LTD?</h2>
+                    <button class="cta-btn cta-btn-primary" onclick="openContactModal()">Register Now →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- USA LLC FORMATION PAGE -->
+        <section class="page" id="usa-llc">
+            <div class="page-hero">
+                <div class="breadcrumb"><a onclick="showPage('home')">Home</a> > USA LLC Formation</div>
+                <h1>USA LLC Formation Services</h1>
+                <p>Register your U.S. LLC professionally with complete documentation and support — from $165.</p>
+            </div>
+
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: var(--spacing-md);">We file in these popular U.S. states:</h2>
+                <div class="states-pills">
+                    <div class="state-pill">Wyoming</div>
+                    <div class="state-pill">Delaware</div>
+                    <div class="state-pill">Florida</div>
+                    <div class="state-pill">Texas</div>
+                    <div class="state-pill">Montana</div>
+                    <div class="state-pill">New Mexico</div>
+                </div>
+                <p style="text-align: center; color: var(--grey); margin-bottom: var(--spacing-2xl);">Each state has different filing fees — pricing reflects base service cost.</p>
+
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-name">STARTER</div>
+                        <div class="pricing-price">From $165</div>
+                        <ul class="pricing-features">
+                            <li>U.S. LLC Registration</li>
+                            <li>Shared Business Address</li>
+                            <li>Articles of Organization</li>
+                            <li>EIN Number Included</li>
+                            <li>Digital Company Documents</li>
+                            <li>24/7 Support</li>
+                        </ul>
+                        <button class="pricing-btn" onclick="openContactModal()">Register Now →</button>
+                    </div>
+
+                    <div class="pricing-card popular">
+                        <div class="pricing-badge popular">Most Popular</div>
+                        <div class="pricing-name">SILVER</div>
+                        <div class="pricing-price">From $235</div>
+                        <ul class="pricing-features">
+                            <li>U.S. LLC Registration</li>
+                            <li>Unique Business Address</li>
+                            <li>EIN Number Included</li>
+                            <li>Mail Handling Support</li>
+                            <li>Full Digital Documents</li>
+                            <li>24/7 Priority Support</li>
+                        </ul>
+                        <button class="pricing-btn" onclick="openContactModal()">Register Now →</button>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-name">GOLD</div>
+                        <div class="pricing-price">From $365</div>
+                        <ul class="pricing-features">
+                            <li>U.S. LLC Registration</li>
+                            <li>Unique Business Address</li>
+                            <li>EIN Number Included</li>
+                            <li>ITIN Number Included</li>
+                            <li>Priority Support</li>
+                            <li>Full Digital Documents</li>
+                        </ul>
+                        <button class="pricing-btn" onclick="openContactModal()">Register Now →</button>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    ⚠️ Pricing may vary depending on selected U.S. state filing fees. Contact us for an exact quote for your chosen state.
+                </div>
+
+                <h2 style="text-align: center; margin-bottom: var(--spacing-2xl);">Frequently Asked Questions</h2>
+                <div class="faq-accordion">
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <div class="faq-question">
+                            Can non-US residents form an LLC?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes — EPRIMEX Ltd specialises in non-resident LLC formation. You don't need to be a U.S. resident to own an LLC in most states.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <div class="faq-question">
+                            What is an EIN and do I need one?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>EIN (Employer Identification Number) is your federal tax ID in the USA. All our packages include EIN registration, which allows you to open U.S. bank accounts and hire employees.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <div class="faq-question">
+                            Which state should I choose?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Wyoming and New Mexico are popular for low registration fees and business-friendly laws. Delaware is known for legal protection. We advise based on your specific business needs.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <div class="faq-question">
+                            How long does formation take?
+                            <span class="faq-toggle">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Usually 5–10 business days depending on the state. Once your LLC is formed, you'll receive all documents and can immediately open a U.S. business bank account.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-cta-section">
+                    <h2>Ready to establish your U.S. presence?</h2>
+                    <button class="cta-btn cta-btn-primary" onclick="openContactModal()">Register Your LLC →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT PAGE -->
+        <section class="page" id="about">
+            <div class="page-hero">
+                <div class="breadcrumb"><a onclick="showPage('home')">Home</a> > About Us</div>
+                <h1>About EPRIMEX Ltd</h1>
+                <p>London-based. Globally trusted. Business simplified.</p>
+            </div>
+
+            <div class="container">
+                <div class="about-section about-two-col">
+                    <div>
+                        <h2>Our Mission</h2>
+                        <p>At EPRIMEX Ltd, our mission is simple — to help entrepreneurs, online sellers, and businesses succeed with professional services that actually deliver results. From eCommerce management to international banking and company formation, we are your all-in-one business partner.</p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-card reveal">
+                            <div class="stat-number counter" data-target="500">0</div>
+                            <div class="stat-label">Clients Served</div>
+                        </div>
+                        <div class="stat-card reveal" style="animation-delay: 0.15s;">
+                            <div class="stat-number counter" data-target="13">0</div>
+                            <div class="stat-label">Banking Platforms</div>
+                        </div>
+                        <div class="stat-card reveal" style="animation-delay: 0.3s;">
+                            <div class="stat-number counter" data-target="3">0</div>
+                            <div class="stat-label">Jurisdictions</div>
+                        </div>
+                        <div class="stat-card reveal" style="animation-delay: 0.45s;">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 style="text-align: center; margin: var(--spacing-2xl) 0;">What We Do</h2>
+                <div class="service-pillars">
+                    <div class="pillar-card">
+                        <div class="pillar-icon">🛒</div>
+                        <h3>eCommerce VA Services</h3>
+                        <p>Expert Amazon, eBay & TikTok Shop management. We handle your store end-to-end.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon">🏦</div>
+                        <h3>Banking Solutions</h3>
+                        <p>13 global platforms, professionally set up. We manage your financial infrastructure.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon">🏢</div>
+                        <h3>Company Formation</h3>
+                        <p>UK LTD & USA LLC with full documentation. Fast, secure, and compliant.</p>
+                    </div>
+                </div>
+
+                <h2 style="text-align: center; margin: var(--spacing-2xl) 0;">Company Details</h2>
+                <div class="company-info-box">
+                    <div class="company-info-item">
+                        <span class="company-info-label">Company Name:</span>
+                        <span class="company-info-value">EPRIMEX Ltd</span>
+                    </div>
+                    <div class="company-info-item">
+                        <span class="company-info-label">Company Number:</span>
+                        <span class="company-info-value">16834313</span>
+                    </div>
+                    <div class="company-info-item">
+                        <span class="company-info-label">Registered Address:</span>
+                        <span class="company-info-value">Unit A100, 4-6 Greatorex Street, London, E1 5NF</span>
+                    </div>
+                    <div class="company-info-item">
+                        <span class="company-info-label">Jurisdiction:</span>
+                        <span class="company-info-value">England & Wales</span>
+                    </div>
+                </div>
+
+                <h2 style="text-align: center; margin: var(--spacing-2xl) 0;">Why Choose Us</h2>
+                <div class="service-pillars">
+                    <div class="pillar-card">
+                        <div class="pillar-icon">✅</div>
+                        <h3>Registered Company</h3>
+                        <p>Officially registered with Companies House (No. 16834313)</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon">⚡</div>
+                        <h3>Fast Delivery</h3>
+                        <p>Quick turnaround on all services. Most formations completed in 24–48 hours.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-card">
+                        <div class="pillar-icon">🔒</div>
+                        <h3>Secure & Confidential</h3>
+                        <p>Your data is handled with the highest security standards and confidentiality.</p>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="page-cta-section">
+                    <h2>Ready to work with us?</h2>
+                    <div class="cta-buttons">
+                        <button class="cta-btn cta-btn-primary" onclick="openContactModal()">Get In Touch</button>
+                        <button class="cta-btn cta-btn-secondary" onclick="window.open('https://wa.me/447828740521', '_blank')">Message on WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT PAGE -->
+        <section class="page" id="contact">
+            <div class="page-hero">
+                <div class="breadcrumb"><a onclick="showPage('home')">Home</a> > Contact Us</div>
+                <h1>Get in Touch</h1>
+                <p>We respond within 24 hours. WhatsApp preferred for faster replies.</p>
+            </div>
+
+            <div class="container">
+                <div class="contact-layout">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <div class="contact-detail">
+                            <strong>Company:</strong><br>
+                            EPRIMEX Ltd
+                        </div>
+                        <div class="contact-detail">
+                            <strong>Address:</strong><br>
+                            Unit A100, 4-6 Greatorex Street<br>
+                            London, E1 5NF<br>
+                            United Kingdom
+                        </div>
+                        <div class="contact-detail">
+                            <strong>Phone:</strong><br>
+                            +44 7828 740521
+                        </div>
+                        <div class="contact-detail" style="margin-bottom: var(--spacing-lg);">
+                            <button class="cta-btn cta-btn-secondary" onclick="window.open('https://wa.me/447828740521', '_blank')">Message on WhatsApp</button>
+                        </div>
+                        <div class="contact-detail">
+                            <strong>Company No:</strong><br>
+                            16834313
+                        </div>
+                        <div class="contact-detail">
+                            <a href="#" style="color: var(--cyan); cursor: pointer;">View on Google Maps →</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-wrapper">
+                        <h3>Send us a Message</h3>
+                        <form id="contactPageForm" onsubmit="submitContactPageForm(event)">
+                            <input type="text" class="form-input" placeholder="Full Name" required>
+                            <input type="email" class="form-input" placeholder="Email Address" required>
+                            <input type="tel" class="form-input" placeholder="Phone Number">
+                            <select class="form-input" required>
+                                <option value="">Select Service...</option>
+                                <option value="amazon-va">Amazon Virtual Assistant</option>
+                                <option value="amazon-wholesale">Amazon Wholesale Services</option>
+                                <option value="ebay-va">eBay Virtual Assistant</option>
+                                <option value="tiktok">TikTok Shop Management</option>
+                                <option value="banking">Banking Solutions</option>
+                                <option value="uk-ltd">UK LTD Formation</option>
+                                <option value="usa-llc">USA LLC Formation</option>
+                                <option value="general">General Enquiry</option>
+                            </select>
+                            <textarea class="form-input" placeholder="Message" rows="5" required></textarea>
+                            <button type="submit" class="form-submit">Send Inquiry →</button>
+                            <div class="form-success-msg" id="contactPageSuccess">✅ Thank you! We'll be in touch within 24 hours.</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════
+         MOBILE BOTTOM NAV BAR
+         ═══════════════════════════════════════════════════════════════════════════════════ -->
+    <nav class="bottom-nav active" id="bottomNav">
+        <div class="bottom-nav-item" onclick="showPage('home')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+        </div>
+
+        <div class="bottom-nav-item" onclick="showPage('ecommerce')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+        </div>
+
+        <div class="bottom-nav-item cta" onclick="openContactModal()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-2.054-2.052-5.378-2.052-7.432 0m4.62-4.62c2.884 2.884 2.884 7.562 0 10.446m4.624-14.624c4.868 4.868 4.868 12.768 0 17.636M1.34 1.34c6.526 6.526 6.526 17.102 0 23.628"/>
+            </svg>
+        </div>
+
+        <div class="bottom-nav-item" onclick="showPage('about')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </div>
+
+        <div class="bottom-nav-item" onclick="showPage('contact')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════════════════════════════════════════════════ -->
+    <footer>
+        <div class="footer-content">
+            <!-- Column 1: Logo + Description -->
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: var(--spacing-md);">
+                    <div class="logo-icon">EP</div>
+                    <div>EPRIMEX</div>
+                </div>
+                <p style="margin-bottom: var(--spacing-md);">Business. Simplified.</p>
+                <p style="font-size: 13px; margin-bottom: var(--spacing-lg);">Professional eCommerce VA, Banking Solutions, and Company Formation services for entrepreneurs globally.</p>
+                <div class="social-links">
+                    <a class="social-icon" href="https://wa.me/447828740521" target="_blank" title="WhatsApp">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-2.054-2.052-5.378-2.052-7.432 0m4.62-4.62c2.884 2.884 2.884 7.562 0 10.446m4.624-14.624c4.868 4.868 4.868 12.768 0 17.636M1.34 1.34c6.526 6.526 6.526 17.102 0 23.628"/>
+                        </svg>
+                    </a>
+                    <a class="social-icon" href="#" target="_blank" title="LinkedIn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                    <a class="social-icon" href="#" target="_blank" title="Twitter">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2s9 5 20 5a9.5 9.5 0 0 0-9-5.5c4.75 2.25 7-7 7-7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a onclick="showPage('home')">Home</a></li>
+                    <li><a onclick="showPage('ecommerce')">Services</a></li>
+                    <li><a onclick="showPage('banking')">Banking</a></li>
+                    <li><a onclick="showPage('uk-ltd')">UK LTD</a></li>
+                    <li><a onclick="showPage('usa-llc')">USA LLC</a></li>
+                    <li><a onclick="showPage('about')">About Us</a></li>
+                    <li><a onclick="showPage('contact')">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Services -->
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a>Amazon VA</a></li>
+                    <li><a>eBay VA</a></li>
+                    <li><a>TikTok Shop</a></li>
+                    <li><a>Banking Solutions</a></li>
+                    <li><a>UK LTD Formation</a></li>
+                    <li><a>USA LLC Formation</a></li>
+                    <li><a>Company Compliance</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Contact -->
+            <div class="footer-col">
+                <h4>Get In Touch</h4>
+                <p style="margin-bottom: var(--spacing-md);">
+                    <strong>Address:</strong><br>
+                    Unit A100, 4-6 Greatorex Street<br>
+                    London, E1 5NF<br>
+                    United Kingdom
+                </p>
+                <p style="margin-bottom: var(--spacing-md);">
+                    <strong>Phone:</strong><br>
+                    +44 7828 740521
+                </p>
+                <button class="cta-wa" onclick="openContactModal()" style="width: 100%; margin-top: var(--spacing-md);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    Message Us
+                </button>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 EPRIMEX Ltd · Company No. 16834313 · <a onclick="showPage('contact')" style="color: var(--cyan); cursor: pointer;">Privacy Policy</a> · <a onclick="showPage('contact')" style="color: var(--cyan); cursor: pointer;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════
+         CONTACT FORM MODAL
+         ═══════════════════════════════════════════════════════════════════════════════════ -->
+    <div class="modal-overlay" id="contactModal" onclick="closeContactModal(event)">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeContactModal()">×</button>
+
+            <div id="modalForm">
+                <h2>Get In Touch</h2>
+                <p style="margin-bottom: var(--spacing-lg); color: var(--grey);">We'll contact you within 24 hours.</p>
+
+                <form id="contactForm" onsubmit="submitContactForm(event)">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" name="fullName" placeholder="John Smith" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" name="email" placeholder="john@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" name="phone" placeholder="+44 7123 456789" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Service Interested In *</label>
+                        <select name="service" required>
+                            <option value="">Select a service...</option>
+                            <option value="amazon-va">Amazon VA</option>
+                            <option value="amazon-wholesale">Amazon Wholesale</option>
+                            <option value="ebay-va">eBay VA</option>
+                            <option value="tiktok-shop">TikTok Shop</option>
+                            <option value="banking">Banking Solutions</option>
+                            <option value="uk-ltd">UK LTD Formation</option>
+                            <option value="usa-llc">USA LLC Formation</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" placeholder="Tell us about your project..." rows="4"></textarea>
+                    </div>
+
+                    <button type="submit" class="modal-btn">Send Inquiry →</button>
+                </form>
+            </div>
+
+            <div id="modalSuccess" style="display: none;">
+                <div class="modal-success">
+                    <div class="modal-success-icon">✅</div>
+                    <p>We'll contact you within 24 hours!</p>
+                    <button class="modal-btn" onclick="closeContactModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════
+         CUSTOM CURSOR (DESKTOP)
+         ═══════════════════════════════════════════════════════════════════════════════════ -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════
+         JAVASCRIPT
+         ═══════════════════════════════════════════════════════════════════════════════════ -->
+    <script>
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        // ANNOUNCEMENT BAR - Rotating Messages
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        const announcements = [
+            '🚀 Professional eCommerce VA Services — Amazon · eBay · TikTok Shop',
+            '🏦 Banking Solutions — PayPal · Stripe · Wise · Airwallex & 10 more',
+            '🇬🇧 UK LTD Formation from £140 | 🇺🇸 USA LLC from $165'
+        ];
+
+        let currentAnnouncement = 0;
+
+        function rotateAnnouncement() {
+            const announcementText = document.getElementById('announcementText');
+            currentAnnouncement = (currentAnnouncement + 1) % announcements.length;
+            announcementText.style.opacity = '0';
+            setTimeout(() => {
+                announcementText.textContent = announcements[currentAnnouncement];
+                announcementText.style.transition = 'opacity 0.5s ease';
+                announcementText.style.opacity = '1';
+            }, 250);
+        }
+
+        setInterval(rotateAnnouncement, 4000);
+
+        function closeAnnouncement() {
+            document.getElementById('announcementBar').classList.add('hidden');
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        // HEADER SCROLL EFFECT
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            lastScrollTop = window.scrollY;
+            if (lastScrollTop > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        // HAMBURGER MENU (Mobile Navigation)
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileNav = document.getElementById('mobileNav');
+
+        function toggleMobileNav() {
+            hamburgerBtn.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            document.body.classList.toggle('scroll-lock');
+        }
+
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburgerBtn.contains(e.target) && !mobileNav.contains(e.target) && mobileNav.classList.contains('active')) {
+                toggleMobileNav();
+            }
+        });
+
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        // PAGE ROUTING SYSTEM
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.style.display = 'none';
+            });
+
+            // Show selected page
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.style.display = 'block';
+            }
+
+            // Update nav active states
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`.nav-link[onclick="showPage('${pageId}')"]`)?.classList.add('active');
+
+            // Update mobile nav active states
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            mobileNavLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`.mobile-nav-link[onclick="showPage('${pageId}'); toggleMobileNav();"]`)?.classList.add('active');
+
+            // Update bottom nav active states
+            const bottomNavItems = document.querySelectorAll('.bottom-nav-item:not(.cta)');
+            bottomNavItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            // Add active to the clicked bottom nav item
+            event.target.closest('.bottom-nav-item')?.classList.add('active');
+
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        // CONTACT FORM MODAL
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        const contactModal = document.getElementById('contactModal');
+        const modalForm = document.getElementById('modalForm');
+        const modalSuccess = document.getElementById('modalSuccess');
+
+        function openContactModal() {
+            contactModal.classList.add('active');
+            document.body.classList.add('scroll-lock');
+        }
+
+        function closeContactModal(event) {
+            if (event && event.target !== contactModal) return;
+            contactModal.classList.remove('active');
+            document.body.classList.remove('scroll-lock');
+            // Reset form visibility
+            modalForm.style.display = 'block';
+            modalSuccess.style.display = 'none';
+            document.getElementById('contactForm').reset();
+        }
+
+        function submitContactForm(event) {
+            event.preventDefault();
+            // Show success message
+            modalForm.style.display = 'none';
+            modalSuccess.style.display = 'block';
+            // Reset form for next use
+            setTimeout(() => {
+                document.getElementById('contactForm').reset();
+            }, 1000);
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        // SCROLL REVEAL ANIMATION (IntersectionObserver)
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const revealOnScroll = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, revealOptions);
+
+        revealElements.forEach(element => revealOnScroll.observe(element));
+
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        // COUNTER ANIMATION
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            let current = 0;
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            const startTime = Date.now();
+
+            const updateCounter = () => {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                current = Math.floor(target * progress);
+                element.textContent = current;
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                }
+            };
+
+            updateCounter();
+        }
+
+        // Observe counters when they come into view
+        const counterOptions = {
+            threshold: 0.5
+        };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.getAttribute('data-animated')) {
+                    animateCounter(entry.target);
+                    entry.target.setAttribute('data-animated', 'true');
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, counterOptions);
+
+        document.querySelectorAll('.counter').forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        // CUSTOM CURSOR (Desktop)
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        const cursorDot = document.getElementById('cursorDot');
+        const cursorRing = document.getElementById('cursorRing');
+
+        let mouseX = 0,
+            mouseY = 0;
+        let ringX = 0,
+            ringY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            // Dot follows immediately
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+
+            // Ring follows with lag
+            setTimeout(() => {
+                ringX = mouseX;
+                ringY = mouseY;
+                cursorRing.style.left = ringX + 'px';
+                cursorRing.style.top = ringY + 'px';
+            }, 50);
+        });
+
+        // Expand ring on hoverable elements
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.classList.contains('clickable')) {
+                cursorRing.style.width = '60px';
+                cursorRing.style.height = '60px';
+                cursorRing.style.borderColor = 'var(--cyan)';
+            }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.classList.contains('clickable')) {
+                cursorRing.style.width = '40px';
+                cursorRing.style.height = '40px';
+                cursorRing.style.borderColor = 'var(--blue)';
+            }
+        });
+
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        // LUCIDE ICONS INITIALIZATION
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        // HOME PAGE - PARTICLE CANVAS (Desktop Only)
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        const canvas = document.getElementById('particleCanvas');
+        let particlesEnabled = window.innerWidth > 1024;
+
+        if (canvas && particlesEnabled) {
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const particles = [];
+            const particleCount = 200;
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                    this.radius = Math.random() * 1.5 + 0.5;
+                    this.color = Math.random() > 0.5 ? 'rgba(0, 212, 255, 0.5)' : 'rgba(0, 87, 255, 0.5)';
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    if (this.x < 0) this.x = canvas.width;
+                    if (this.x > canvas.width) this.x = 0;
+                    if (this.y < 0) this.y = canvas.height;
+                    if (this.y > canvas.height) this.y = 0;
+                }
+
+                draw() {
+                    ctx.fillStyle = this.color;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            // Initialize particles
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+
+            function drawLines() {
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < 150) {
+                            ctx.strokeStyle = `rgba(0, 212, 255, ${0.2 * (1 - distance / 150)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+
+                drawLines();
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        // TYPEWRITER ANIMATION (Hero H1)
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        const typewriterTexts = [
+            'With Amazon VA Services',
+            'With eBay VA Services',
+            'With TikTok Shop Management',
+            'With Banking Solutions',
+            'With UK LTD Formation'
+        ];
+
+        let typewriterIndex = 0;
+        const typewriterElement = document.querySelector('.typewriter-text');
+
+        function typewriterAnimation() {
+            if (!typewriterElement) return;
+
+            typewriterElement.textContent = '';
+            typewriterElement.style.borderRightColor = 'var(--cyan)';
+            let charIndex = 0;
+            const text = typewriterTexts[typewriterIndex];
+
+            function type() {
+                if (charIndex < text.length) {
+                    typewriterElement.textContent += text[charIndex];
+                    charIndex++;
+                    setTimeout(type, 50);
+                } else {
+                    // Wait before cycling to next text
+                    setTimeout(() => {
+                        typewriterIndex = (typewriterIndex + 1) % typewriterTexts.length;
+                        // Delete text
+                        let deleteIndex = text.length;
+                        const deleteInterval = setInterval(() => {
+                            if (deleteIndex > 0) {
+                                typewriterElement.textContent = text.substring(0, deleteIndex - 1);
+                                deleteIndex--;
+                            } else {
+                                clearInterval(deleteInterval);
+                                typewriterAnimation();
+                            }
+                        }, 30);
+                    }, 2000);
+                }
+            }
+
+            type();
+        }
+
+        if (typewriterElement) {
+            typewriterAnimation();
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        // 3D CARD TILT (Hero Cards)
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        const cards3D = document.querySelectorAll('.card-3d');
+
+        if (window.innerWidth > 1024) {
+            document.addEventListener('mousemove', (e) => {
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
+
+                cards3D.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    const cardCenterX = rect.left + rect.width / 2;
+                    const cardCenterY = rect.top + rect.height / 2;
+
+                    const rotateX = (mouseY - cardCenterY) * 0.05;
+                    const rotateY = (mouseX - cardCenterX) * 0.05;
+
+                    card.style.transform = `
+                        rotateX(${rotateX}deg)
+                        rotateY(${rotateY}deg)
+                        perspective(1000px)
+                    `;
+                });
+            });
+
+            document.addEventListener('mouseleave', () => {
+                cards3D.forEach(card => {
+                    card.style.transform = '';
+                });
+            });
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        // WORD REVEAL ANIMATION (Services Heading)
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        function revealWords(element) {
+            const words = element.textContent.split(' ');
+            element.innerHTML = words.map((word, idx) => 
+                `<span style="animation: reveal 0.6s ease ${idx * 0.1}s both; display: inline-block; margin-right: 0.3em;">${word}</span>`
+            ).join('');
+        }
+
+        // Apply to all h2 in reveal class
+        const headingsToReveal = document.querySelectorAll('.services-heading h2, .how-it-works h2, .testimonials-section h2');
+        headingsToReveal.forEach(heading => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.dataset.revealed) {
+                        revealWords(entry.target);
+                        entry.target.dataset.revealed = true;
+                    }
+                });
+            }, { threshold: 0.5 });
+            observer.observe(heading);
+        });
+
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        // HIGHLIGHT SWEEP ANIMATION (Platforms Heading)
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        const platformsHeading = document.querySelector('.platforms-heading');
+        if (platformsHeading) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'gradient-shift 4s ease infinite';
+                    }
+                });
+            }, { threshold: 0.5 });
+            observer.observe(platformsHeading);
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        // STEP LINE DRAWING ANIMATION
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        const stepLine = document.querySelector('.step-line');
+        if (stepLine) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        stepLine.style.animation = 'drawLine 1s ease-out forwards';
+                    }
+                });
+            }, { threshold: 0.5 });
+            observer.observe(stepLine);
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        // FAQ ACCORDION TOGGLE
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        function toggleFAQ(element) {
+            element.classList.toggle('active');
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        // CONTACT PAGE FORM SUBMISSION
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        function submitContactPageForm(event) {
+            event.preventDefault();
+            const successMsg = document.getElementById('contactPageSuccess');
+            const form = document.getElementById('contactPageForm');
+            
+            // Show success message
+            successMsg.classList.add('show');
+            
+            // Reset form after 2 seconds
+            setTimeout(() => {
+                form.reset();
+                successMsg.classList.remove('show');
+            }, 3000);
+        }
+
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        // MARQUEE ANIMATION (Manual Implementation for smooth infinite scroll)
+        // ═══════════════════════════════════════════════════════════════════════════════════
+        const marqueeElement = document.getElementById('marquee');
+        if (marqueeElement) {
+            // Create duplicate for seamless loop if not exists
+            let marqueeContent = marqueeElement.innerHTML;
+            marqueeElement.innerHTML = marqueeContent + marqueeContent;
+        }
+    </script>
+</body>
+
+</html>
